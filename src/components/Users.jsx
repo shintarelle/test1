@@ -4,7 +4,7 @@ import Card from './Card';
 
 import React, { useState, useEffect } from 'react';
 
-export default function UserList() {
+export default function UserList({ update, fm }) {
   const [users, setUsers] = useState([]);
   const[next, setNext] = useState('');
   const [showMore, setShowMore] = useState(true);
@@ -16,7 +16,13 @@ export default function UserList() {
         if (data.success) {
           setUsers(data.users);
           console.log("useEffect data", data)
-          setNext(data.links.next_url)
+          if (update) {
+            setNext('')
+            setNext(data.links.next_url)
+          } else {
+            setNext(data.links.next_url)
+          }
+          // fm()
         } else {
           // Process server errors
         }
@@ -25,7 +31,12 @@ export default function UserList() {
         // Handle fetch error
         console.error(error);
       });
-  }, []);
+
+  }, [update]);
+  fm()
+
+    console.log('update', update)
+
 
   const fetchUsers = (url) => {
     fetch(`${next}`)

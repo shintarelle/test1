@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const UserForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -60,38 +61,38 @@ const UserForm = () => {
     formData.append('photo', photo);
     formData.append('position_id', radioOption);
 
-    //Get a token
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
-      .then(function (response) { return response.json(); })
-      .then(function (data) {
-        console.log(data.token);
-        setToken(data.token)
-        console.log('token', token)
-      })
-      .catch(function (error) { // proccess network errors
-    });
+    // //Get a token
+    // fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+    //   .then(function (response) { return response.json(); })
+    //   .then(function (data) {
+    //     console.log(data.token);
+    //     setToken(data.token)
+    //     console.log('token', token)
+    //   })
+    //   .catch(function (error) { // proccess network errors
+    // });
 
-    // Send the form data to the API
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Token': token, // Replace with your actual token
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          // Process success response
-        } else {
-          // Process server errors
-        }
-      })
-      .catch((error) => {
-        // Process network errors
-      });
-
+    // // Send the form data to the API
+    // fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
+    //   method: 'POST',
+    //   body: formData,
+    //   headers: {
+    //     'Token': token, // Replace with your actual token
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.success) {
+    //       // Process success response
+    //     } else {
+    //       // Process server errors
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     // Process network errors
+    //   });
+    console.log(typeof formData)
     console.log(formData)
   };
 

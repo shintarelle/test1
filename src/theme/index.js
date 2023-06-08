@@ -33,7 +33,11 @@ const theme = extendTheme({
       1: '#f4e041', //button
       2: '#ffe302', //button hover
     },
-    blue: '#00BDD3', //checkbox
+    blue: {
+      1: '#00BDD3', //checkbox
+      500: '#00BDD3', //checkbox
+      600: '#00BDD3', //checkbox
+    }
   },
   // breakpoints: {
   // sm: '30em',  //480px
