@@ -7,28 +7,47 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
 
 const baseStyle = definePartsStyle({
   // define the part you're going to style
+  border: '5px',
+  clip: 'rect(2px, 2px, 3px, 2px)',
+  height: '8px',
+  width: '8px',
+  margin: '3px',
+  padding: '0px',
+  overflow: 'visible',
+  whiteSpace: 'nowrap',
+  position: 'absolute',
   control: {
     borderRadius: '3px',
-    borderWidth: "3px",
+    borderWidth: "1px",
     borderStyle: "solid",
     borderColor: "grey.1",
-    background: "red",
-    width: '0%',
-    color: 'green',
+    // background: "red",
+    width: '10%',
+  //   // color: 'pink',
 
     // _checked: {
     //   background: "green",
     //   borderColor: "blue.1",
 
+
     //   _hover: {
     //     // bg: "blue.1",
     //     borderColor: "blue.1"
-    //   }
+    //   },
+    //   _before: {
+    //   color: 'orange',
+    //   position: 'relative',
+    //   ml: '-5px',
+    //   width: '100%',
+    //   height: '100%',
     // },
-    _hover: {
-      borderRadius: '9px ',
-      borderWidth: "9px",
-    }
+    // },
+    // _hover: {
+    //   borderRadius: '7px ',
+    //   borderWidth: "7px",
+    //   borderColor: 'yellow'
+    // },
+
   }
 })
 
