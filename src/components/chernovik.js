@@ -78,14 +78,9 @@ const UserForm = ({ fn }) => {
     fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
       .then(function (response) { return response.json(); })
       .then(function (data) {
-        if (data.success) {
-          // console.log(data.token);
-          setToken(data.token)
-          // setToken(data.token)
-          console.log('token', token)
-        } else {
-          // Process server errors
-        }
+        // console.log(data.token);
+        setToken(data.token)
+        // console.log('token', token)
       })
       .catch(function (error) { // proccess network errors
     });
@@ -112,6 +107,8 @@ const UserForm = ({ fn }) => {
       .catch((error) => {
         // Process network errors
       });
+
+    handleUpdate()
   };
 
   return (
@@ -139,30 +136,30 @@ const UserForm = ({ fn }) => {
           <FormHelperText>+38 (XXX) XXX - XX - XX</FormHelperText>
       </FormControl>
 
-      <div className={styles.inputGroupRadio}>
-        <p className={styles.inputRadioHeader}>Select your position</p>
-        <p className={styles.inputRadioItem}>
-          <input className={styles.inputRadio} type="radio" id="position1" value="1" checked={radioOption === '1'} onChange={handleRadioChange} />
-          <label htmlFor="position1"><span className={styles.inputRadioText}>Frontend developer</span></label>
+      <div class={styles.inputGroupRadio}>
+        <p class={styles.inputRadioHeader}>Select your position</p>
+        <p class={styles.inputRadioItem}>
+          <input class={styles.inputRadio} type="radio" id="position1" value="1" checked={radioOption === '1'} onChange={handleRadioChange} />
+          <label for="position1"><span class={styles.inputRadioText}>Frontend developer</span></label>
         </p>
-        <p className={styles.inputRadioItem}>
-          <input className={styles.inputRadio} type="radio" id="position2" value="2" checked={radioOption === '2'} onChange={handleRadioChange} />
-          <label htmlFor="position2"><span className={styles.inputRadioText}>Backend developer</span></label>
+        <p class={styles.inputRadioItem}>
+          <input class={styles.inputRadio} type="radio" id="position2" value="2" checked={radioOption === '2'} onChange={handleRadioChange} />
+          <label for="position2"><span class={styles.inputRadioText}>Backend developer</span></label>
         </p>
-        <p className={styles.inputRadioItem}>
-          <input className={styles.inputRadio} type="radio" id="position3" value="3" checked={radioOption === '3'} onChange={handleRadioChange} />
-          <label htmlFor="position3"><span className={styles.inputRadioText}>Designer</span></label>
+        <p class={styles.inputRadioItem}>
+          <input class={styles.inputRadio} type="radio" id="position3" value="3" checked={radioOption === '3'} onChange={handleRadioChange} />
+          <label for="position3"><span class={styles.inputRadioText}>Designer</span></label>
         </p>
-        <p className={styles.inputRadioItem}>
-          <input className={styles.inputRadio} type="radio" id="position4" value="4" checked={radioOption === '4'} onChange={handleRadioChange} />
-          <label htmlFor="position4"><span className={styles.inputRadioText}>QA</span></label>
+        <p class={styles.inputRadioItem}>
+          <input class={styles.inputRadio} type="radio" id="position4" value="4" checked={radioOption === '4'} onChange={handleRadioChange} />
+          <label for="position4"><span class={styles.inputRadioText}>QA</span></label>
         </p>
       </div>
 
-      <label className={styles.inputFile}>
-        <span className={styles.inputFileBtn}>Upload</span>
+      <label class={styles.inputFile}>
+        <span class={styles.inputFileBtn}>Upload</span>
         <input type="file" name="file" onChange={handlePhotoChange} required accept="image/jpeg" />
-        <span className={styles.inputFileText} type="text">Upload your photo</span>
+        <span class={styles.inputFileText} type="text">Upload your photo</span>
       </label>
 
           <Button type="submit" bg='rgba(180, 180, 180, 1)'

@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Users from './components/Users';
 import UserForm from './components/UserForm';
+import UserSuccesReg from './components/UserSuccesReg';
 
 
 
@@ -30,6 +31,8 @@ export default function App() {
       <Main />
       <Users update={update} fm={fm} />
       <UserForm fn={fn} />
+      {/* <UserSuccesReg /> */}
+
     </ChakraProvider>
   )
 }
