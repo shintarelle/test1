@@ -17,9 +17,6 @@ const Button = {
       _active: {
         backgroundColor: 'yellow.2',
       },
-      // _disabled: {
-      //   backgroundColor: 'grey.2', //!!!
-      // },
     },
     disabled: {
       backgroundColor: 'grey.2',

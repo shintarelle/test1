@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../UserForm.module.css';
-import { Box, FormControl, FormLabel, Input, Radio, RadioGroup, Button, Stack, FormHelperText, Heading } from "@chakra-ui/react";
+import { Box, FormControl, Input, Button, FormHelperText, Heading } from "@chakra-ui/react";
 import ModalSucces from './ModalSucces';
 
-import { useDisclosure } from '@chakra-ui/react'
+import UserContext from "../context/UserContext";
 
 
-const UserForm = ({ fn }) => {
+const UserForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [photo, setPhoto] = useState(null);
   const [radioOption, setRadioOption] = useState('');
-  // const [value, setValue] = useState('1');
-  const [token, setToken] = useState('');
-  const [showModal, setShowModal] = useState(true)
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { addUser, isOpen, onClose, showModal } = useContext(UserContext)
 
 
   const handleNameChange = (event) => {
@@ -38,10 +35,6 @@ const UserForm = ({ fn }) => {
   const handleRadioChange = (event) => {
     setRadioOption(event.target.value);
   };
-
-  const handleUpdate = () => {
-    fn()
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -67,55 +60,19 @@ const UserForm = ({ fn }) => {
       return;
     }
 
-    const formData = new FormData();
+  const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('photo', photo);
     formData.append('position_id', radioOption);
 
-    //Get a token
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
-      .then(function (response) { return response.json(); })
-      .then(function (data) {
-        if (data.success) {
-          // console.log(data.token);
-          setToken(data.token)
-          // setToken(data.token)
-          console.log('token', token)
-        } else {
-          // Process server errors
-        }
-      })
-      .catch(function (error) { // proccess network errors
-    });
+    addUser(formData)
 
-    // Send the form data to the API
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Token': token, // Replace with your actual token
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          // Process success response
-          setShowModal(true)
-          onOpen()
-        } else {
-          // Process server errors
-        }
-      })
-      .catch((error) => {
-        // Process network errors
-      });
   };
 
   return (
-    <Box m='0px auto' backgroundColor="grey.1" p="50px 0 0 0">
+    <Box m='0px auto' backgroundColor="grey.1" p="50px 0 ">
     <Heading
         color='black'
         textAlign="center"
@@ -165,13 +122,11 @@ const UserForm = ({ fn }) => {
         <span className={styles.inputFileText} type="text">Upload your photo</span>
       </label>
 
-          <Button type="submit" bg='rgba(180, 180, 180, 1)'
-            // onClick={fn}
-          >Sign in</Button>
+          <Button type="submit" bg='rgba(180, 180, 180, 1)'>Sign in</Button>
       </Box>
       </Box>
       <Box>
-        {showModal ? <ModalSucces isOpen={isOpen} onOpen = { onOpen } onClose = { onClose } /> : null
+        {showModal ? <ModalSucces isOpen={isOpen} onClose = { onClose } /> : null
       }
       </Box>
 

@@ -4,7 +4,6 @@ export default function Card({ user }) {
 
   return (
     <Box backgroundColor="white"
-      // maxW={['328px', '328px', '344px', '282px', '370px']}
       w={[ '370px']}
       height='254px'
       borderRadius={'10px'}
