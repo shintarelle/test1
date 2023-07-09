@@ -1,0 +1,119 @@
+.inputFile {
+  position: relative;
+  display: inline-block;
+}
+.inputFileText {
+  padding: 6px 0px 6px 96px;
+  line-height: 40px;
+  text-align: left;
+  height: 54px;
+  display: block;
+  color: rgba(126, 126, 126, 1);
+  box-sizing: border-box;
+  width: 380px;
+  border-radius: 4px;
+  border: 1px solid rgba(208, 207, 207, 1);
+}
+.inputFileBtn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-size: 16px;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  border-radius: 4px 0px 0px 4px;
+  background-color: transparent;
+  line-height: 26px;
+  height: 54px;
+  padding: 13px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  margin: 0px 0px -78px;
+  transition: background-color 0.2s;
+  width: 83px;
+}
+.inputFile input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+/* Hover/active */
+.inputFile:hover .inputFileBtn {
+  background-color: rgba(180, 180, 180, 1);
+}
+.inputFile:active .inputFileBtn {
+  background-color: rgba(180, 180, 180, 1);
+}
+
+/* Disabled */
+.inputFile input[type="file"]:disabled + .inputFileBtn {
+  background-color: #eee;
+}
+/*--------------------------------------------------*/
+
+.inputGroupRadio {
+  width: 380px;
+}
+
+.inputRadioHeader {
+  margin-bottom: 11px;
+}
+
+.inputRadioText {
+  padding-left: 12px;
+}
+
+.inputRadioItem {
+  margin-bottom: 7px;
+}
+
+/*-------------*/
+
+input[type="radio"],
+label {
+  cursor: pointer;
+  margin-bottom: -4px;
+}
+
+input[type="radio"] {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid rgba(0, 189, 211, 1);
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 189, 211, 1);
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
